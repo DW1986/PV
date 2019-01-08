@@ -110,7 +110,7 @@ sudoku2	: THEORY
   
   SubMatrix: TYPE+ = [below(3),below(3) -> Zahl]
   
-  Sudoku: TYPE = [below(3),below(3) -> SubMatrix]
+  Sudoku: TYPE+ = [below(3),below(3) -> SubMatrix]
 
   sudoku: Sudoku
 
