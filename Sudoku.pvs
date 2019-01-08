@@ -114,6 +114,7 @@ sudoku2	: THEORY
 
   sudoku: Sudoku
 
+
   % vielleicht nmod anstatt mod3 verwenden
   mod3(n:below(9)): below(3) = 
   		   IF n = 0 THEN 0
@@ -124,7 +125,7 @@ sudoku2	: THEORY
 		   ELSIF n = 5 THEN 2
 		   ELSIF n = 6 THEN 0
 		   ELSIF n = 7 THEN 1
-		   ELSE 8 ENDIF
+		   ELSE 2 ENDIF
 
   % vielleicht ndiv anstatt div3 verwenden
   div3(n:below(9)): below(3) =
@@ -139,10 +140,10 @@ sudoku2	: THEORY
 		   ELSE 2 ENDIF
 
   line(ysub:below(3),y: below(3)): [below(9) -> Zahl] = (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku(div3(n),ysub) IN subm(mod3(n),y))
+  column(xsub: below(3), x:below(3)): [below(9) -> Zahl] = (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku(xsub,div3(n)) IN subm(x,mod3(n)))
 
-
-  alle_zeilen: LEMMA FORALL(ysub:below(3)): FORALL(y:below(3)): bijective?(line(ysub, y))
-  % alle_spalten: LEMMA ...
+  alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
+  alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
   % alle_subs: LEMMA ...
   
 
