@@ -1,104 +1,3 @@
-sudoku:THEORY
-BEGIN
-	Zahlen: Type = below(9)
-	moegleiche_Zahlen: Type = {1,2,3,4,5,6,7,8,9}
-	x: { x:nat | x = 9 }
-	Matrix: Type = [below(x),below(x)-> nat]
-
-	Sudoku(i:nat,j:nat): Zahlen =
-	IF i=0 AND j=0 THEN 7
-	ELSIF i=0 AND j=1 THEN 4
-	ELSIF i=0 AND j=2 THEN 6
-	ELSIF i=0 AND j=3 THEN 1
-	ELSIF i=0 AND j=4 THEN 3
-	ELSIF i=0 AND j=5 THEN 9
-	ELSIF i=0 AND j=6 THEN 5
-	ELSIF i=0 AND j=7 THEN 2
-	ELSIF i=0 AND j=8 THEN 8
-	ELSIF i=1 AND j=0 THEN 1
-	ELSIF i=1 AND j=1 THEN 2
-	ELSIF i=1 AND j=2 THEN 8
-	ELSIF i=1 AND j=3 THEN 7
-	ELSIF i=1 AND j=4 THEN 4
-	ELSIF i=1 AND j=5 THEN 5
-	ELSIF i=1 AND j=6 THEN 9
-	ELSIF i=1 AND j=7 THEN 6
-	ELSIF i=1 AND j=8 THEN 3
-	ELSIF i=2 AND j=0 THEN 9
-	ELSIF i=2 AND j=1 THEN 5
-	ELSIF i=2 AND j=2 THEN 3
-	ELSIF i=2 AND j=3 THEN 8
-	ELSIF i=2 AND j=4 THEN 6
-	ELSIF i=2 AND j=5 THEN 2
-	ELSIF i=2 AND j=6 THEN 7
-	ELSIF i=2 AND j=7 THEN 4
-	ELSIF i=2 AND j=8 THEN 1
-	ELSIF i=3 AND j=0 THEN 6
-	ELSIF i=3 AND j=1 THEN 1
-	ELSIF i=3 AND j=2 THEN 4
-	ELSIF i=3 AND j=3 THEN 9
-	ELSIF i=3 AND j=4 THEN 5
-	ELSIF i=3 AND j=5 THEN 3
-	ELSIF i=3 AND j=6 THEN 8
-	ELSIF i=3 AND j=7 THEN 7
-	ELSIF i=3 AND j=8 THEN 2
-	ELSIF i=4 AND j=0 THEN 8
-	ELSIF i=4 AND j=1 THEN 3
-	ELSIF i=4 AND j=2 THEN 2
-	ELSIF i=4 AND j=3 THEN 6
-	ELSIF i=4 AND j=4 THEN 1
-	ELSIF i=4 AND j=5 THEN 7
-	ELSIF i=4 AND j=6 THEN 4
-	ELSIF i=4 AND j=7 THEN 5
-	ELSIF i=4 AND j=8 THEN 9
-	ELSIF i=5 AND j=0 THEN 5
-	ELSIF i=5 AND j=1 THEN 9
-	ELSIF i=5 AND j=2 THEN 7
-	ELSIF i=5 AND j=3 THEN 4
-	ELSIF i=5 AND j=4 THEN 2
-	ELSIF i=5 AND j=5 THEN 8
-	ELSIF i=5 AND j=6 THEN 1
-	ELSIF i=5 AND j=7 THEN 3
-	ELsIF i=5 AND j=8 THEN 6
-	ELSIF i=6 AND j=0 THEN 4
-	ELSIF i=6 AND j=1 THEN 6
-	ELSIF i=6 AND j=2 THEN 5
-	ELSIF i=6 AND j=3 THEN 2
-	ELSIF i=6 AND j=4 THEN 8
-	ELSIF i=6 AND j=5 THEN 1
-	ELSIF i=6 AND j=6 THEN 3
-	ELSIF i=6 AND j=7 THEN 9
-	ELSIF i=6 AND j=8 THEN 7
-	ELSIF i=7 AND j=0 THEN 3
-	ELSIF i=7 AND j=1 THEN 7
-	ELSIF i=7 AND j=2 THEN 1
-	ELSIF i=7 AND j=3 THEN 5
-	ELSIF i=7 AND j=4 THEN 9
-	ELSIF i=7 AND j=5 THEN 6
-	ELSIF i=7 AND j=6 THEN 2
-	ELSIF i=7 AND j=7 THEN 8
-	ELSIF i=7 AND j=8 THEN 4
-	ELSIF i=8 AND j=0 THEN 2
-	ELSIF i=8 AND j=1 THEN 8
-	ELSIF i=8 AND j=2 THEN 9
-	ELSIF i=8 AND j=3 THEN 3
-	ELSIF i=8 AND j=4 THEN 7
-	ELSIF i=8 AND j=5 THEN 4
-	ELSIF i=8 AND j=6 THEN 6
-	ELSIF i=8 AND j=7 THEN 1
-	ELSIF i=8 AND j=8 THEN 5
-	ELSE 0
-	ENDIF
-
-
-
-  
-
-
-	
-END sudoku
-
-
 sudoku2	: THEORY
   BEGIN
 
@@ -112,9 +11,7 @@ sudoku2	: THEORY
   
   SubMatrix: TYPE+ = [below(3),below(3) -> Zahl]
   
-  Sudoku: TYPE+ = [below(3),below(3) -> SubMatrix]
-
-  sudoku: Sudoku 
+  Sudoku: TYPE+ = [below(3),below(3) -> SubMatrix] 
 
   sub1(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 7
@@ -127,6 +24,17 @@ sudoku2	: THEORY
 	     ELSIF x = 1 AND y = 2 THEN 5
 	     ELSE 3 ENDIF
 
+  sub1_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 7 THEN (0,0)
+	     ELSIF z = 4 THEN (1,0)
+	     ELSIF z = 6 THEN (2,0)
+	     ELSIF z = 1 THEN (0,1)
+	     ELSIF z = 2 THEN (1,1)
+	     ELSIF z = 8 THEN (2,1)
+	     ELSIF z = 9 THEN (0,2)
+	     ELSIF z = 5 THEN (1,2)
+	     ELSE (2,2) ENDIF
+
   sub2(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 1
 	     ELSIF x = 1 AND y = 0 THEN 3
@@ -137,6 +45,17 @@ sudoku2	: THEORY
 	     ELSIF x = 0 AND y = 2 THEN 8
 	     ELSIF x = 1 AND y = 2 THEN 6
 	     ELSE 2 ENDIF
+
+  sub2_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 1 THEN (0,0)
+	     ELSIF z = 3 THEN (1,0)
+	     ELSIF z = 9 THEN (2,0)
+	     ELSIF z = 7 THEN (0,1)
+	     ELSIF z = 4 THEN (1,1)
+	     ELSIF z = 5 THEN (2,1)
+	     ELSIF z = 8 THEN (0,2)
+	     ELSIF z = 6 THEN (1,2)
+	     ELSE (2,2) ENDIF
 
   sub3(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 5
@@ -149,6 +68,17 @@ sudoku2	: THEORY
 	     ELSIF x = 1 AND y = 2 THEN 4 
 	     ELSE 1 ENDIF
 
+  sub3_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 5 THEN (0,0)
+	     ELSIF z = 2 THEN (1,0)
+	     ELSIF z = 8 THEN (2,0)
+	     ELSIF z = 9 THEN (0,1)
+	     ELSIF z = 6 THEN (1,1)
+	     ELSIF z = 3 THEN (2,1)
+	     ELSIF z = 7 THEN (0,2)
+	     ELSIF z = 4 THEN (1,2)
+	     ELSE (2,2) ENDIF		 
+
   sub4(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 6
 	     ELSIF x = 1 AND y = 0 THEN 1
@@ -160,6 +90,16 @@ sudoku2	: THEORY
 	     ELSIF x = 1 AND y = 2 THEN 9
 	     ELSE 7 ENDIF
 
+  sub4_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 6 THEN (0,0)
+	     ELSIF z = 1 THEN (1,0)
+	     ELSIF z = 4 THEN (2,0)
+	     ELSIF z = 8 THEN (0,1)
+	     ELSIF z = 3 THEN (1,1)
+	     ELSIF z = 2 THEN (2,1)
+	     ELSIF z = 5 THEN (0,2)
+	     ELSIF z = 9 THEN (1,2)
+	     ELSE (2,2) ENDIF
   sub5(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 9
 	     ELSIF x = 1 AND y = 0 THEN 5
@@ -170,6 +110,17 @@ sudoku2	: THEORY
 	     ELSIF x = 0 AND y = 2 THEN 4
 	     ELSIF x = 1 AND y = 2 THEN 2
 	     ELSE 8 ENDIF	 
+
+  sub5_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 9 THEN (0,0)
+	     ELSIF z = 5 THEN (1,0)
+	     ELSIF z = 3 THEN (2,0)
+	     ELSIF z = 6 THEN (0,1)
+	     ELSIF z = 1 THEN (1,1)
+	     ELSIF z = 7 THEN (2,1)
+	     ELSIF z = 4 THEN (0,2)
+	     ELSIF z = 2 THEN (1,2)
+	     ELSE (2,2) ENDIF
 
   sub6(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 8
@@ -182,6 +133,17 @@ sudoku2	: THEORY
 	     ELSIF x = 1 AND y = 2 THEN 3
 	     ELSE 6 ENDIF
 
+  sub6_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 8 THEN (0,0)
+	     ELSIF z = 7 THEN (1,0)
+	     ELSIF z = 2 THEN (2,0)
+	     ELSIF z = 4 THEN (0,1)
+	     ELSIF z = 5 THEN (1,1)
+	     ELSIF z = 9 THEN (2,1)
+	     ELSIF z = 1 THEN (0,2)
+	     ELSIF z = 3 THEN (1,2)
+	     ELSE (2,2) ENDIF
+
   sub7(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 4
 	     ELSIF x = 1 AND y = 0 THEN 6
@@ -192,6 +154,17 @@ sudoku2	: THEORY
 	     ELSIF x = 0 AND y = 2 THEN 2
 	     ELSIF x = 1 AND y = 2 THEN 8
 	     ELSE 9 ENDIF
+
+  sub7_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 4 THEN (0,0)
+	     ELSIF z = 6 THEN (1,0)
+	     ELSIF z = 5 THEN (2,0)
+	     ELSIF z = 3 THEN (0,1)
+	     ELSIF z = 7 THEN (1,1)
+	     ELSIF z = 1 THEN (2,1)
+	     ELSIF z = 2 THEN (0,2)
+	     ELSIF z = 8 THEN (1,2)
+	     ELSE (2,2) ENDIF
 
   sub8(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 2
@@ -204,6 +177,17 @@ sudoku2	: THEORY
 	     ELSIF x = 1 AND y = 2 THEN 7
 	     ELSE 4 ENDIF
 
+  sub8_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 2 THEN (0,0)
+	     ELSIF z = 8 THEN (1,0)
+	     ELSIF z = 1 THEN (2,0)
+	     ELSIF z = 5 THEN (0,1)
+	     ELSIF z = 9 THEN (1,1)
+	     ELSIF z = 6 THEN (2,1)
+	     ELSIF z = 3 THEN (0,2)
+	     ELSIF z = 7 THEN (1,2)
+	     ELSE (2,2) ENDIF
+
   sub9(x,y): Zahl =
   	     IF x = 0 AND y = 0 THEN 3
 	     ELSIF x = 1 AND y = 0 THEN 9
@@ -214,6 +198,17 @@ sudoku2	: THEORY
 	     ELSIF x = 0 AND y = 2 THEN 6
 	     ELSIF x = 1 AND y = 2 THEN 1
 	     ELSE 5 ENDIF
+
+  sub9_inv(z: Zahl): [below(3), below(3)] =
+  	     IF z = 3 THEN (0,0)
+	     ELSIF z = 9 THEN (1,0)
+	     ELSIF z = 7 THEN (2,0)
+	     ELSIF z = 2 THEN (0,1)
+	     ELSIF z = 8 THEN (1,1)
+	     ELSIF z = 4 THEN (2,1)
+	     ELSIF z = 6 THEN (0,2)
+	     ELSIF z = 1 THEN (1,2)
+	     ELSE (2,2) ENDIF
 
   sudoku1(x,y): SubMatrix =
 	  	IF x = 0 AND y = 0 THEN sub1
@@ -249,16 +244,45 @@ sudoku2	: THEORY
 		   ELSIF n = 6 THEN 2
 		   ELSIF n = 7 THEN 2
 		   ELSE 2 ENDIF
+		   
+  erste_sub: LEMMA bijective?(sub1)
+  zweite_sub: LEMMA bijective?(sub2)
+  dritte_sub: LEMMA bijective?(sub3)
 
-  line(ysub:below(3),y: below(3)): [below(9) -> Zahl] = (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku(div3(n),ysub) IN subm(mod3(n),y))
-  column(xsub: below(3), x:below(3)): [below(9) -> Zahl] = (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku(xsub,div3(n)) IN subm(x,mod3(n)))
+  vierte_sub: LEMMA bijective?(sub4)
+  fuenfte_sub: LEMMA bijective?(sub5) 
+  sechste_sub: LEMMA bijective?(sub6)
+
+  siebte_sub: LEMMA bijective?(sub7)
+  achte_sub: LEMMA bijective?(sub8)
+  neunte_sub: LEMMA bijective?(sub9)
+  
+  line(ysub:below(3),y: below(3)): [below(9) -> Zahl] =
+  		(LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(div3(n),ysub) IN subm(mod3(n),y))
+		
+  column(xsub: below(3), x:below(3)): [below(9) -> Zahl] =
+  	       (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(xsub,div3(n)) IN subm(x,mod3(n)))
+
+  erste_zeile_inv(z: Zahl): below(9) =
+  		     IF z = 1 THEN 3
+		     ELSIF z = 2 THEN 7
+		     ELSIF z = 3 THEN 4
+		     ELSIF z = 4 THEN 1
+		     ELSIF z = 5 THEN 6
+		     ELSIF z = 6 THEN 2
+		     ELSIF z = 7 THEN 0
+		     ELSIF z = 8 THEN 8
+		     ELSE 5 ENDIF
 
   alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
   alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
   alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
- 
-  ein_sub: LEMMA bijective?(sudoku(0,0)) 
 
+  erste_zeile: LEMMA bijective?(line(0,0))
+
+  test_bijective(x:below(2)): below(2) = IF x = 0 THEN 1 ELSE 0 ENDIF
+  is_bijective: LEMMA bijective?(test_bijective)
+  
   END sudoku2
 
 

@@ -1,0 +1,1 @@
+("Sudoku" sudoku2 ein_sub 0 (ein_sub-1 nil 3756536523 ("" (expand "bijective?") (("" (split) (("1" (expand "injective?") (("1" (skolem!) (("1" (grind) (("1" (postpone) nil nil)) nil)) nil)) nil) ("2" (postpone) nil nil)) nil)) nil) nil shostak))
