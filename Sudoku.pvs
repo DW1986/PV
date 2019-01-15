@@ -274,11 +274,107 @@ sudoku2	: THEORY
 		     ELSIF z = 8 THEN 8
 		     ELSE 5 ENDIF
 
+  zweite_zeile_inv(z: Zahl): below(9) =
+  		     IF z = 1 THEN 0
+		     ELSIF z = 2 THEN 1
+		     ELSIF z = 3 THEN 8
+		     ELSIF z = 4 THEN 4
+		     ELSIF z = 5 THEN 5
+		     ELSIF z = 6 THEN 7
+		     ELSIF z = 7 THEN 3
+		     ELSIF z = 8 THEN 2
+		     ELSE 6 ENDIF
+
+  dritte_zeile_inv(z: Zahl): below(9) =
+  		     IF z = 1 THEN 8
+		     ELSIF z = 2 THEN 5
+		     ELSIF z = 3 THEN 2
+		     ELSIF z = 4 THEN 7
+		     ELSIF z = 5 THEN 1
+		     ELSIF z = 6 THEN 4
+		     ELSIF z = 7 THEN 6
+		     ELSIF z = 8 THEN 3
+		     ELSE 0 ENDIF
+
+  vierte_zeile_inv(z: Zahl): below(9) =
+                     IF z = 1 THEN 1
+		     ELSIF z = 2 THEN 8
+		     ELSIF z = 3 THEN 5
+		     ELSIF z = 4 THEN 2
+		     ELSIF z = 5 THEN 4
+		     ELSIF z = 6 THEN 0
+		     ELSIF z = 7 THEN 7
+		     ELSIF z = 8 THEN 6
+		     ELSE 3 ENDIF
+		   
+  fuenfte_zeile_inv(z: Zahl): below(9) =
+                     IF z = 1 THEN 4
+		     ELSIF z = 2 THEN 2
+		     ELSIF z = 3 THEN 1
+		     ELSIF z = 4 THEN 6
+		     ELSIF z = 5 THEN 7
+		     ELSIF z = 6 THEN 3
+		     ELSIF z = 7 THEN 5
+		     ELSIF z = 8 THEN 0
+		     ELSE 8 ENDIF
+
+  sechste_zeile_inv(z: Zahl): below(9) =
+                     IF z = 1 THEN 6
+		     ELSIF z = 2 THEN 4
+		     ELSIF z = 3 THEN 7
+		     ELSIF z = 4 THEN 3
+		     ELSIF z = 5 THEN 0
+		     ELSIF z = 6 THEN 8
+		     ELSIF z = 7 THEN 2
+		     ELSIF z = 8 THEN 5
+		     ELSE 1 ENDIF
+
+  siebte_zeile_inv(z: Zahl): below(9) =
+                     IF z = 1 THEN 5
+		     ELSIF z = 2 THEN 3
+		     ELSIF z = 3 THEN 6
+		     ELSIF z = 4 THEN 0
+		     ELSIF z = 5 THEN 2
+		     ELSIF z = 6 THEN 1
+		     ELSIF z = 7 THEN 8
+		     ELSIF z = 8 THEN 4
+		     ELSE 7 ENDIF
+
+  achte_zeile_inv(z: Zahl): below(9) =
+                     IF z = 1 THEN 2
+		     ELSIF z = 2 THEN 6 
+		     ELSIF z = 3 THEN 0
+		     ELSIF z = 4 THEN 8
+		     ELSIF z = 5 THEN 3
+		     ELSIF z = 6 THEN 5
+		     ELSIF z = 7 THEN 1
+		     ELSIF z = 8 THEN 7
+		     ELSE 4 ENDIF
+
+  neunte_zeile_inv(z: Zahl): below(9) =
+                     IF z = 1 THEN 7
+		     ELSIF z = 2 THEN 0 
+		     ELSIF z = 3 THEN 3
+		     ELSIF z = 4 THEN 5
+		     ELSIF z = 5 THEN 8
+		     ELSIF z = 6 THEN 6
+		     ELSIF z = 7 THEN 4
+		     ELSIF z = 8 THEN 1
+		     ELSE 2 ENDIF
+		     
+  erste_zeile: LEMMA bijective?(line(0,0))
+  zweite_zeile: LEMMA bijective?(line(0,1))
+  dritte_zeile: LEMMA bijective?(line(0,2))
+  vierte_zeile: LEMMA bijective?(line(1,0))
+  fuenfte_zeile: LEMMA bijective?(line(1,1))
+  sechste_zeile: LEMMA bijective?(line(1,2))
+  siebte_zeile: LEMMA bijective?(line(2,0))
+  achte_zeile: LEMMA bijective?(line(2,1))
+  neunte_zeile: Lemma bijective?(line(2,2))
+  
   alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
   alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
   alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
-
-  erste_zeile: LEMMA bijective?(line(0,0))
 
   test_bijective(x:below(2)): below(2) = IF x = 0 THEN 1 ELSE 0 ENDIF
   is_bijective: LEMMA bijective?(test_bijective)
