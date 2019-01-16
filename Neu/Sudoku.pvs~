@@ -1,0 +1,157 @@
+Sudoku	: THEORY
+  BEGIN
+
+x,y: below(3)
+
+  Zahl: TYPE+ = {(z:nat) | z > 0 and z <= 9 }
+  
+  SubMatrix: TYPE+ = [below(3),below(3) -> Zahl]
+  
+  Sudoku: TYPE+ = [below(3),below(3) -> SubMatrix] 
+
+  
+
+  % vielleicht nmod anstatt mod3 verwenden
+  mod3(n:below(9)): below(3) = 
+  		   IF n = 0 THEN 0
+  		   ELSIF n = 1 THEN 1
+		   ELSIF n = 2 THEN 2
+		   ELSIF n = 3 THEN 0
+		   ELSIF n = 4 THEN 1
+		   ELSIF n = 5 THEN 2
+		   ELSIF n = 6 THEN 0
+		   ELSIF n = 7 THEN 1
+		   ELSE 2 ENDIF
+
+  % vielleicht ndiv anstatt div3 verwenden
+  div3(n:below(9)): below(3) =
+  		   IF n = 0 THEN 0
+		   ELSIF n = 1 THEN 0
+		   ELSIF n = 2 THEN 0
+		   ELSIF n = 3 THEN 1
+		   ELSIF n = 4 THEN 1
+		   ELSIF n = 5 THEN 1
+		   ELSIF n = 6 THEN 2
+		   ELSIF n = 7 THEN 2
+		   ELSE 2 ENDIF
+
+  sub1(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 7
+	     ELSIF x = 1 AND y = 0 THEN 4
+	     ELSIF x = 2 AND y = 0 THEN 6
+	     ELSIF x = 0 AND y = 1 THEN 1
+	     ELSIF x = 1 AND y = 1 THEN 2
+	     ELSIF x = 2 AND y = 1 THEN 8
+	     ELSIF x = 0 AND y = 2 THEN 9
+	     ELSIF x = 1 AND y = 2 THEN 5
+	     ELSE 3 ENDIF
+
+    sub2(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 1
+	     ELSIF x = 1 AND y = 0 THEN 3
+	     ELSIF x = 2 AND y = 0 THEN 9
+	     ELSIF x = 0 AND y = 1 THEN 7
+	     ELSIF x = 1 AND y = 1 THEN 4
+	     ELSIF x = 2 AND y = 1 THEN 5
+	     ELSIF x = 0 AND y = 2 THEN 8
+	     ELSIF x = 1 AND y = 2 THEN 6
+	     ELSE 2 ENDIF
+
+  
+  sub3(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 5
+	     ELSIF x = 1 AND y = 0 THEN 2
+	     ELSIF x = 2 AND y = 0 THEN 8
+	     ELSIF x = 0 AND y = 1 THEN 9
+	     ELSIF x = 1 AND y = 1 THEN 6
+	     ELSIF x = 2 AND y = 1 THEN 3
+	     ELSIF x = 0 AND y = 2 THEN 7
+	     ELSIF x = 1 AND y = 2 THEN 4 
+	     ELSE 1 ENDIF
+
+   sub4(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 6
+	     ELSIF x = 1 AND y = 0 THEN 1
+	     ELSIF x = 2 AND y = 0 THEN 4
+	     ELSIF x = 0 AND y = 1 THEN 8
+	     ELSIF x = 1 AND y = 1 THEN 3
+	     ELSIF x = 2 AND y = 1 THEN 2
+	     ELSIF x = 0 AND y = 2 THEN 5
+	     ELSIF x = 1 AND y = 2 THEN 9
+	     ELSE 7 ENDIF
+
+  
+  sub5(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 9
+	     ELSIF x = 1 AND y = 0 THEN 5
+	     ELSIF x = 2 AND y = 0 THEN 3
+	     ELSIF x = 0 AND y = 1 THEN 6
+	     ELSIF x = 1 AND y = 1 THEN 1
+	     ELSIF x = 2 AND y = 1 THEN 7
+	     ELSIF x = 0 AND y = 2 THEN 4
+	     ELSIF x = 1 AND y = 2 THEN 2
+	     ELSE 8 ENDIF	 
+
+  
+  sub6(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 8
+	     ELSIF x = 1 AND y = 0 THEN 7
+	     ELSIF x = 2 AND y = 0 THEN 2
+	     ELSIF x = 0 AND y = 1 THEN 4
+	     ELSIF x = 1 AND y = 1 THEN 5
+	     ELSIF x = 2 AND y = 1 THEN 9
+	     ELSIF x = 0 AND y = 2 THEN 1
+	     ELSIF x = 1 AND y = 2 THEN 3
+	     ELSE 6 ENDIF
+
+   sub7(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 4
+	     ELSIF x = 1 AND y = 0 THEN 6
+	     ELSIF x = 2 AND y = 0 THEN 5
+	     ELSIF x = 0 AND y = 1 THEN 3
+	     ELSIF x = 1 AND y = 1 THEN 7
+	     ELSIF x = 2 AND y = 1 THEN 1
+	     ELSIF x = 0 AND y = 2 THEN 2
+	     ELSIF x = 1 AND y = 2 THEN 8
+	     ELSE 9 ENDIF
+
+    sub8(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 2
+	     ELSIF x = 1 AND y = 0 THEN 8
+	     ELSIF x = 2 AND y = 0 THEN 1
+	     ELSIF x = 0 AND y = 1 THEN 5
+	     ELSIF x = 1 AND y = 1 THEN 9
+	     ELSIF x = 2 AND y = 1 THEN 6
+	     ELSIF x = 0 AND y = 2 THEN 3
+	     ELSIF x = 1 AND y = 2 THEN 7
+	     ELSE 4 ENDIF
+
+  
+
+  sub9(x,y): Zahl =
+  	     IF x = 0 AND y = 0 THEN 3
+	     ELSIF x = 1 AND y = 0 THEN 9
+	     ELSIF x = 2 AND y = 0 THEN 7
+	     ELSIF x = 0 AND y = 1 THEN 2
+	     ELSIF x = 1 AND y = 1 THEN 8
+	     ELSIF x = 2 AND y = 1 THEN 4
+	     ELSIF x = 0 AND y = 2 THEN 6
+	     ELSIF x = 1 AND y = 2 THEN 1
+	     ELSE 5 ENDIF
+
+    sudoku1(x,y): SubMatrix =
+	  	IF x = 0 AND y = 0 THEN sub1
+	    ELSIF x = 1 AND y = 0 THEN sub2
+	    ELSIF x = 2 AND y = 0 THEN sub3
+	    ELSIF x = 0 AND y = 1 THEN sub4
+	    ELSIF x = 1 AND y = 1 THEN sub5
+	    ELSIF x = 2 AND y = 1 THEN sub6
+	    ELSIF x = 0 AND y = 2 THEN sub7
+	    ELSIF x = 1 AND y = 2 THEN sub8
+	    ELSE sub9 ENDIF
+
+  
+  
+  END Sudoku
+
+
