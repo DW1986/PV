@@ -3,121 +3,111 @@ Sub_inv	: THEORY
 
 importing Deklaration
 
-
-  sub1_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 7 THEN (0,0)
-	     ELSIF z = 4 THEN (1,0)
-	     ELSIF z = 6 THEN (2,0)
-	     ELSIF z = 1 THEN (0,1)
-	     ELSIF z = 2 THEN (1,1)
-	     ELSIF z = 8 THEN (2,1)
-	     ELSIF z = 9 THEN (0,2)
-	     ELSIF z = 5 THEN (1,2)
-	     ELSE (2,2) ENDIF
-
-
-  sub2_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 1 THEN (0,0)
-	     ELSIF z = 3 THEN (1,0)
-	     ELSIF z = 9 THEN (2,0)
-	     ELSIF z = 7 THEN (0,1)
-	     ELSIF z = 4 THEN (1,1)
-	     ELSIF z = 5 THEN (2,1)
-	     ELSIF z = 8 THEN (0,2)
-	     ELSIF z = 6 THEN (1,2)
-	     ELSE (2,2) ENDIF
+sub1_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 7 THEN (0,0)
+	ELSIF z = 4 THEN (1,0)
+	ELSIF z = 6 THEN (2,0)
+	ELSIF z = 1 THEN (0,1)
+	ELSIF z = 2 THEN (1,1)
+	ELSIF z = 8 THEN (2,1)
+	ELSIF z = 9 THEN (0,2)
+	ELSIF z = 5 THEN (1,2)
+	ELSE (2,2) ENDIF
 
 
-  sub3_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 5 THEN (0,0)
-	     ELSIF z = 2 THEN (1,0)
-	     ELSIF z = 8 THEN (2,0)
-	     ELSIF z = 9 THEN (0,1)
-	     ELSIF z = 6 THEN (1,1)
-	     ELSIF z = 3 THEN (2,1)
-	     ELSIF z = 7 THEN (0,2)
-	     ELSIF z = 4 THEN (1,2)
-	     ELSE (2,2) ENDIF		 
+sub2_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 1 THEN (0,0)
+	ELSIF z = 3 THEN (1,0)
+	ELSIF z = 9 THEN (2,0)
+	ELSIF z = 7 THEN (0,1)
+	ELSIF z = 4 THEN (1,1)
+	ELSIF z = 5 THEN (2,1)
+	ELSIF z = 8 THEN (0,2)
+	ELSIF z = 6 THEN (1,2)
+	ELSE (2,2) ENDIF
 
 
-
-  sub4_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 6 THEN (0,0)
-	     ELSIF z = 1 THEN (1,0)
-	     ELSIF z = 4 THEN (2,0)
-	     ELSIF z = 8 THEN (0,1)
-	     ELSIF z = 3 THEN (1,1)
-	     ELSIF z = 2 THEN (2,1)
-	     ELSIF z = 5 THEN (0,2)
-	     ELSIF z = 9 THEN (1,2)
-	     ELSE (2,2) ENDIF
- 
-
-  sub5_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 9 THEN (0,0)
-	     ELSIF z = 5 THEN (1,0)
-	     ELSIF z = 3 THEN (2,0)
-	     ELSIF z = 6 THEN (0,1)
-	     ELSIF z = 1 THEN (1,1)
-	     ELSIF z = 7 THEN (2,1)
-	     ELSIF z = 4 THEN (0,2)
-	     ELSIF z = 2 THEN (1,2)
-	     ELSE (2,2) ENDIF
+sub3_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 5 THEN (0,0)
+	ELSIF z = 2 THEN (1,0)
+	ELSIF z = 8 THEN (2,0)
+	ELSIF z = 9 THEN (0,1)
+	ELSIF z = 6 THEN (1,1)
+	ELSIF z = 3 THEN (2,1)
+	ELSIF z = 7 THEN (0,2)
+	ELSIF z = 4 THEN (1,2)
+	ELSE (2,2) ENDIF		 
 
 
-  sub6_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 8 THEN (0,0)
-	     ELSIF z = 7 THEN (1,0)
-	     ELSIF z = 2 THEN (2,0)
-	     ELSIF z = 4 THEN (0,1)
-	     ELSIF z = 5 THEN (1,1)
-	     ELSIF z = 9 THEN (2,1)
-	     ELSIF z = 1 THEN (0,2)
-	     ELSIF z = 3 THEN (1,2)
-	     ELSE (2,2) ENDIF
+sub4_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 6 THEN (0,0)
+	ELSIF z = 1 THEN (1,0)
+	ELSIF z = 4 THEN (2,0)
+	ELSIF z = 8 THEN (0,1)
+	ELSIF z = 3 THEN (1,1)
+	ELSIF z = 2 THEN (2,1)
+	ELSIF z = 5 THEN (0,2)
+	ELSIF z = 9 THEN (1,2)
+	ELSE (2,2) ENDIF
 
 
-
-  sub7_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 4 THEN (0,0)
-	     ELSIF z = 6 THEN (1,0)
-	     ELSIF z = 5 THEN (2,0)
-	     ELSIF z = 3 THEN (0,1)
-	     ELSIF z = 7 THEN (1,1)
-	     ELSIF z = 1 THEN (2,1)
-	     ELSIF z = 2 THEN (0,2)
-	     ELSIF z = 8 THEN (1,2)
-	     ELSE (2,2) ENDIF
-
+sub5_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 9 THEN (0,0)
+	ELSIF z = 5 THEN (1,0)
+	ELSIF z = 3 THEN (2,0)
+	ELSIF z = 6 THEN (0,1)
+	ELSIF z = 1 THEN (1,1)
+	ELSIF z = 7 THEN (2,1)
+	ELSIF z = 4 THEN (0,2)
+	ELSIF z = 2 THEN (1,2)
+	ELSE (2,2) ENDIF
 
 
-  sub8_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 2 THEN (0,0)
-	     ELSIF z = 8 THEN (1,0)
-	     ELSIF z = 1 THEN (2,0)
-	     ELSIF z = 5 THEN (0,1)
-	     ELSIF z = 9 THEN (1,1)
-	     ELSIF z = 6 THEN (2,1)
-	     ELSIF z = 3 THEN (0,2)
-	     ELSIF z = 7 THEN (1,2)
-	     ELSE (2,2) ENDIF
+sub6_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 8 THEN (0,0)
+	ELSIF z = 7 THEN (1,0)
+	ELSIF z = 2 THEN (2,0)
+	ELSIF z = 4 THEN (0,1)
+	ELSIF z = 5 THEN (1,1)
+	ELSIF z = 9 THEN (2,1)
+	ELSIF z = 1 THEN (0,2)
+	ELSIF z = 3 THEN (1,2)
+	ELSE (2,2) ENDIF
 
 
-  sub9_inv(z: Zahl): [below(3), below(3)] =
-  	     IF z = 3 THEN (0,0)
-	     ELSIF z = 9 THEN (1,0)
-	     ELSIF z = 7 THEN (2,0)
-	     ELSIF z = 2 THEN (0,1)
-	     ELSIF z = 8 THEN (1,1)
-	     ELSIF z = 4 THEN (2,1)
-	     ELSIF z = 6 THEN (0,2)
-	     ELSIF z = 1 THEN (1,2)
-	     ELSE (2,2) ENDIF
+sub7_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 4 THEN (0,0)
+	ELSIF z = 6 THEN (1,0)
+	ELSIF z = 5 THEN (2,0)
+	ELSIF z = 3 THEN (0,1)
+	ELSIF z = 7 THEN (1,1)
+	ELSIF z = 1 THEN (2,1)
+	ELSIF z = 2 THEN (0,2)
+	ELSIF z = 8 THEN (1,2)
+	ELSE (2,2) ENDIF
 
 
-		   
+sub8_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 2 THEN (0,0)
+	ELSIF z = 8 THEN (1,0)
+	ELSIF z = 1 THEN (2,0)
+	ELSIF z = 5 THEN (0,1)
+	ELSIF z = 9 THEN (1,1)
+	ELSIF z = 6 THEN (2,1)
+	ELSIF z = 3 THEN (0,2)
+	ELSIF z = 7 THEN (1,2)
+	ELSE (2,2) ENDIF
 
+
+sub9_inv(z: Zahl): [below(3), below(3)] =
+	IF z = 3 THEN (0,0)
+	ELSIF z = 9 THEN (1,0)
+	ELSIF z = 7 THEN (2,0)
+	ELSIF z = 2 THEN (0,1)
+	ELSIF z = 8 THEN (1,1)
+	ELSIF z = 4 THEN (2,1)
+	ELSIF z = 6 THEN (0,2)
+	ELSIF z = 1 THEN (1,2)
+	ELSE (2,2) ENDIF
   
-  END Sub_inv
-
-
+END Sub_inv

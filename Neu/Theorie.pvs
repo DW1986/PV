@@ -1,67 +1,58 @@
 Theorie	: THEORY
   BEGIN
 
- importing Sudoku
- importing Sub_inv
- importing Line_inv
- importing Column_inv
- importing Color_inv
+importing Sudoku
+importing Sub_inv
+importing Line_inv
+importing Column_inv
+importing Color_inv
 
- 
-	   
-		   
-  erste_sub: LEMMA bijective?(sub1)
-  zweite_sub: LEMMA bijective?(sub2)
-  dritte_sub: LEMMA bijective?(sub3)
+erste_sub: LEMMA bijective?(sub1)
+zweite_sub: LEMMA bijective?(sub2)
+dritte_sub: LEMMA bijective?(sub3)
 
-  vierte_sub: LEMMA bijective?(sub4)
-  fuenfte_sub: LEMMA bijective?(sub5) 
-  sechste_sub: LEMMA bijective?(sub6)
+vierte_sub: LEMMA bijective?(sub4)
+fuenfte_sub: LEMMA bijective?(sub5) 
+sechste_sub: LEMMA bijective?(sub6)
 
-  siebte_sub: LEMMA bijective?(sub7)
-  achte_sub: LEMMA bijective?(sub8)
-  neunte_sub: LEMMA bijective?(sub9)
+siebte_sub: LEMMA bijective?(sub7)
+achte_sub: LEMMA bijective?(sub8)
+neunte_sub: LEMMA bijective?(sub9)
+
+line(ysub:below(3),y: below(3)): [below(9) -> Zahl] =
+    (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(div3(n),ysub) IN subm(mod3(n),y))
   
-  line(ysub:below(3),y: below(3)): [below(9) -> Zahl] =
-  		(LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(div3(n),ysub) IN subm(mod3(n),y))
-		
-  column(xsub: below(3), x:below(3)): [below(9) -> Zahl] =
-  	       (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(xsub,div3(n)) IN subm(x,mod3(n)))
+column(xsub: below(3), x:below(3)): [below(9) -> Zahl] =
+    (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(xsub,div3(n)) IN subm(x,mod3(n)))
 
- 
+alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
+alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
+alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
 
-  alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
-  alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
-  alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
+erste_zeile: LEMMA bijective?(line(0,0))
+zweite_zeile: LEMMA bijective?(line(0,1))
+dritte_zeile: LEMMA bijective?(line(0,2))
 
-  erste_zeile: LEMMA bijective?(line(0,0))
-  zweite_zeile: LEMMA bijective?(line(0,1))
-  dritte_zeile: LEMMA bijective?(line(0,2))
+vierte_zeile: LEMMA bijective?(line(1,0))
+fuenfte_zeile: LEMMA bijective?(line(1,1))
+sechste_zeile: LEMMA bijective?(line(1,2))
 
-  vierte_zeile: LEMMA bijective?(line(1,0))
-  fuenfte_zeile: LEMMA bijective?(line(1,1))
-  sechste_zeile: LEMMA bijective?(line(1,2))
+siebte_zeile: LEMMA bijective?(line(2,0))
+achte_zeile: LEMMA bijective?(line(2,1))
+neunte_zeile: LEMMA bijective?(line(2,2))
 
-  siebte_zeile: LEMMA bijective?(line(2,0))
-  achte_zeile: LEMMA bijective?(line(2,1))
-  neunte_zeile: LEMMA bijective?(line(2,2))
+erste_spalte: LEMMA bijective?(column(0,0))
+zweite_spalte: LEMMA bijective?(column(1,0))
+dritte_spalte: LEMMA bijective?(column(2,0))
 
+vierte_spalte: LEMMA bijective?(column(0,1))
+fuenfte_spalte: LEMMA bijective?(column(1,1))
+sechste_spalte: LEMMA bijective?(column(2,1))
 
-  erste_spalte: LEMMA bijective?(column(0,0))
-  zweite_spalte: LEMMA bijective?(column(1,0))
-  dritte_spalte: LEMMA bijective?(column(2,0))
+siebte_spalte: LEMMA bijective?(column(0,2))
+achte_spalte: LEMMA bijective?(column(1,2))
+neunte_spalte: LEMMA bijective?(column(2,2))
 
-  vierte_spalte: LEMMA bijective?(column(0,1))
-  fuenfte_spalte: LEMMA bijective?(column(1,1))
-  sechste_spalte: LEMMA bijective?(column(2,1))
-
-  siebte_spalte: LEMMA bijective?(column(0,2))
-  achte_spalte: LEMMA bijective?(column(1,2))
-  neunte_spalte: LEMMA bijective?(column(2,2))
-
-  test_bijective(x:below(2)): below(2) = IF x = 0 THEN 1 ELSE 0 ENDIF
-  is_bijective: LEMMA bijective?(test_bijective)
-  
-  END Theorie
+END Theorie
 
 
