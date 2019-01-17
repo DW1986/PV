@@ -42,16 +42,23 @@ achte_zeile: LEMMA bijective?(line(2,1))
 neunte_zeile: LEMMA bijective?(line(2,2))
 
 erste_spalte: LEMMA bijective?(column(0,0))
-zweite_spalte: LEMMA bijective?(column(1,0))
-dritte_spalte: LEMMA bijective?(column(2,0))
+zweite_spalte: LEMMA bijective?(column(0,1))
+dritte_spalte: LEMMA bijective?(column(0,2))
 
-vierte_spalte: LEMMA bijective?(column(0,1))
+vierte_spalte: LEMMA bijective?(column(1,0))
 fuenfte_spalte: LEMMA bijective?(column(1,1))
-sechste_spalte: LEMMA bijective?(column(2,1))
+sechste_spalte: LEMMA bijective?(column(1,2))
 
-siebte_spalte: LEMMA bijective?(column(0,2))
-achte_spalte: LEMMA bijective?(column(1,2))
+siebte_spalte: LEMMA bijective?(column(2,0))
+achte_spalte: LEMMA bijective?(column(2,1))
 neunte_spalte: LEMMA bijective?(column(2,2))
+
+%TODO
+% Color
+% 1 Zahl an 1 Stelle
+% nicht 1 Zahl an 1 Stelle
+% Layout - Zeileabstände, Kommentare usw.
+% Geser: "LET würde ich nicht benutzen"
 
 END Theorie
 
