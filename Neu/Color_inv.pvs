@@ -1,10 +1,106 @@
 Color_inv: THEORY
   BEGIN
 
- importing Deklaration
+importing Deklaration
 
- 
-	   
+rot_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 1
+	ELSIF z = 2 THEN 7
+	ELSIF z = 3 THEN 8
+	ELSIF z = 4 THEN 6
+	ELSIF z = 5 THEN 2
+	ELSIF z = 6 THEN 3
+	ELSIF z = 7 THEN 0
+	ELSIF z = 8 THEN 5
+	ELSE 4 ENDIF
+
+dgrau_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 3
+	ELSIF z = 2 THEN 2
+	ELSIF z = 3 THEN 1
+	ELSIF z = 4 THEN 0
+	ELSIF z = 5 THEN 4
+	ELSIF z = 6 THEN 6
+	ELSIF z = 7 THEN 5
+	ELSIF z = 8 THEN 7
+	ELSE 8 ENDIF
+
+gruen_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 7
+	ELSIF z = 2 THEN 5
+	ELSIF z = 3 THEN 4
+	ELSIF z = 4 THEN 3
+	ELSIF z = 5 THEN 6
+	ELSIF z = 6 THEN 0
+	ELSIF z = 7 THEN 8
+	ELSIF z = 8 THEN 2
+	ELSE 1 ENDIF
+
+grau_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 0
+	ELSIF z = 2 THEN 8
+	ELSIF z = 3 THEN 6
+	ELSIF z = 4 THEN 5
+	ELSIF z = 5 THEN 7
+	ELSIF z = 6 THEN 4
+	ELSIF z = 7 THEN 1
+	ELSIF z = 8 THEN 3
+	ELSE 2 ENDIF
+
+cyan_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 4
+	ELSIF z = 2 THEN 0
+	ELSIF z = 3 THEN 3
+	ELSIF z = 4 THEN 1
+	ELSIF z = 5 THEN 5
+	ELSIF z = 6 THEN 2
+	ELSIF z = 7 THEN 6
+	ELSIF z = 8 THEN 8
+	ELSE 7 ENDIF
+
+lila_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 6
+	ELSIF z = 2 THEN 3
+	ELSIF z = 3 THEN 2
+	ELSIF z = 4 THEN 8
+	ELSIF z = 5 THEN 1
+	ELSIF z = 6 THEN 7
+	ELSIF z = 7 THEN 4
+	ELSIF z = 8 THEN 0
+	ELSE 5 ENDIF
+
+gelb_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 5
+	ELSIF z = 2 THEN 6
+	ELSIF z = 3 THEN 7
+	ELSIF z = 4 THEN 4
+	ELSIF z = 5 THEN 3
+	ELSIF z = 6 THEN 8
+	ELSIF z = 7 THEN 2
+	ELSIF z = 8 THEN 1
+	ELSE 0 ENDIF
+
+rosa_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 8
+	ELSIF z = 2 THEN 4
+	ELSIF z = 3 THEN 5
+	ELSIF z = 4 THEN 2
+	ELSIF z = 5 THEN 0
+	ELSIF z = 6 THEN 1
+	ELSIF z = 7 THEN 7
+	ELSIF z = 8 THEN 6
+	ELSE 3 ENDIF
+
+weiss_color_inv(z: Zahl): below(9) =
+	IF z = 1 THEN 2
+	ELSIF z = 2 THEN 1
+	ELSIF z = 3 THEN 0
+	ELSIF z = 4 THEN 7
+	ELSIF z = 5 THEN 8
+	ELSIF z = 6 THEN 5
+	ELSIF z = 7 THEN 3
+	ELSIF z = 8 THEN 4
+	ELSE 6 ENDIF	   
 		   
   
   END Color_inv
