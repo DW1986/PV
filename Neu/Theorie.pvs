@@ -7,6 +7,14 @@ importing Line_inv
 importing Column_inv
 importing Color_inv
 
+line(ysub:below(3),y: below(3)): [below(9) -> Zahl] =
+    (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(div3(n),ysub) IN subm(mod3(n),y))
+  
+column(xsub: below(3), x:below(3)): [below(9) -> Zahl] =
+    (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(xsub,div3(n)) IN subm(x,mod3(n)))
+
+%% Sub-Matrizen
+
 erste_sub: LEMMA bijective?(sub1)
 zweite_sub: LEMMA bijective?(sub2)
 dritte_sub: LEMMA bijective?(sub3)
@@ -19,15 +27,7 @@ siebte_sub: LEMMA bijective?(sub7)
 achte_sub: LEMMA bijective?(sub8)
 neunte_sub: LEMMA bijective?(sub9)
 
-line(ysub:below(3),y: below(3)): [below(9) -> Zahl] =
-    (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(div3(n),ysub) IN subm(mod3(n),y))
-  
-column(xsub: below(3), x:below(3)): [below(9) -> Zahl] =
-    (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(xsub,div3(n)) IN subm(x,mod3(n)))
-
-alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
-alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
-alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
+%% Zeilen
 
 erste_zeile: LEMMA bijective?(line(0,0))
 zweite_zeile: LEMMA bijective?(line(0,1))
@@ -41,6 +41,8 @@ siebte_zeile: LEMMA bijective?(line(2,0))
 achte_zeile: LEMMA bijective?(line(2,1))
 neunte_zeile: LEMMA bijective?(line(2,2))
 
+%% Spalten
+
 erste_spalte: LEMMA bijective?(column(0,0))
 zweite_spalte: LEMMA bijective?(column(1,0))
 dritte_spalte: LEMMA bijective?(column(2,0))
@@ -52,6 +54,12 @@ sechste_spalte: LEMMA bijective?(column(2,1))
 siebte_spalte: LEMMA bijective?(column(0,2))
 achte_spalte: LEMMA bijective?(column(1,2))
 neunte_spalte: LEMMA bijective?(column(2,2))
+
+%% Sudoku
+
+alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
+alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
+alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
 
 END Theorie
 
