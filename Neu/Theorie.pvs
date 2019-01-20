@@ -61,6 +61,9 @@ neunte_spalte: LEMMA bijective?(column(2,2))
 alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
 alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
 alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
+ 
+sudoku_korrekt: LEMMA FORALL(x: below(3), y:below(3)):
+       bijective?(line(x,y)) AND bijective?(column(x,y)) AND bijective?(sudoku1(x,y))
 
 %TODO
 % Color
