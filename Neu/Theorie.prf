@@ -2036,5 +2036,13 @@
     (NOT const-decl "[bool -> bool]" booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (boolean nonempty-type-decl nil booleans nil))
-   shostak)))
+   shostak))
+ (sieben_in_00 0
+  (sieben_in_00-1 nil 3757261753
+   ("" (assert) (("" (expand "sub1") (("" (propax) nil nil)) nil)) nil)
+   ((sub1 const-decl "Zahl" Sudoku nil)) shostak))
+ (nicht_eins_in_00 0
+  (nicht_eins_in_00-1 nil 3757261676
+   ("" (expand "sub1") (("" (assert) nil nil)) nil)
+   ((sub1 const-decl "Zahl" Sudoku nil)) shostak)))
 

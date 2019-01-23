@@ -65,6 +65,9 @@ alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
 sudoku_korrekt: LEMMA FORALL(x: below(3), y:below(3)):
        bijective?(line(x,y)) AND bijective?(column(x,y)) AND bijective?(sudoku1(x,y))
 
+sieben_in_00: FORMULA sub1(0,0)=7
+nicht_eins_in_00: FORMULA sub1(0,0)/= 1
+
 %TODO
 % Color
 % 1 Zahl an 1 Stelle

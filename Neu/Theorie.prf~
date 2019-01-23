@@ -2006,5 +2006,42 @@
     (NOT const-decl "[bool -> bool]" booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (boolean nonempty-type-decl nil booleans nil))
-   shostak)))
+   shostak))
+ (sudoku_korrekt 0
+  (sudoku_korrekt-1 nil 3756992331
+   ("" (skolem-typepred)
+    (("" (split)
+      (("1" (rewrite "alle_zeilen") nil nil)
+       ("2" (rewrite "alle_spalten") nil nil)
+       ("3" (rewrite "alle_subs") nil nil))
+      nil))
+    nil)
+   ((alle_zeilen formula-decl nil Theorie nil)
+    (alle_spalten formula-decl nil Theorie nil)
+    (alle_subs formula-decl nil Theorie nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (< const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil))
+   shostak))
+ (sieben_in_00 0
+  (sieben_in_00-1 nil 3757261753
+   ("" (assert) (("" (expand "sub1") (("" (propax) nil nil)) nil)) nil)
+   ((sub1 const-decl "Zahl" Sudoku nil)) shostak))
+ (nicht_eins_in_00 0
+  (nicht_eins_in_00-1 nil 3757261676 ("" (grind) nil nil)
+   ((sub1 const-decl "Zahl" Sudoku nil)) shostak)))
 
