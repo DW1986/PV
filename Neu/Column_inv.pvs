@@ -1,7 +1,7 @@
 Column_inv: THEORY
   BEGIN
 
- importing Deklaration
+importing Deklaration
 
 erste_spalte_inv(z: Zahl): below(9) =
 	IF z = 1 THEN 1

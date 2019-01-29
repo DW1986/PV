@@ -16,6 +16,7 @@ column(xsub: below(3), x:below(3)): [below(9) -> Zahl] =
 farbe(x: below(3), y:below(3)): [below(9) -> Zahl] =
     (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(mod3(n),div3(n)) IN subm(x,y))
 
+
 %% Sub-Matrizen
 
 erste_sub: LEMMA bijective?(sub1)
@@ -29,6 +30,7 @@ sechste_sub: LEMMA bijective?(sub6)
 siebte_sub: LEMMA bijective?(sub7)
 achte_sub: LEMMA bijective?(sub8)
 neunte_sub: LEMMA bijective?(sub9)
+
 
 %% Zeilen
 
@@ -58,10 +60,20 @@ siebte_spalte: LEMMA bijective?(column(2,0))
 achte_spalte: LEMMA bijective?(column(2,1))
 neunte_spalte: LEMMA bijective?(column(2,2))
 
+
 %% Farben
 
 rote_felder: LEMMA bijective?(farbe(0,0))
 graue_felder: LEMMA bijective?(farbe(0,1))
+gelbe_felder: LEMMA bijective?(farbe(0,2))
+
+dgraue_felder: LEMMA bijective?(farbe(1,0))
+cyane_felder: LEMMA bijective?(farbe(1,1))
+rosa_felder: LEMMA bijective?(farbe(1,2))
+
+gruene_felder: LEMMA bijective?(farbe(2,0))
+lila_felder: LEMMA bijective?(farbe(2,1))
+weisse_felder: LEMMA bijective?(farbe(2,2))
 
 
 %% Sudoku
@@ -77,15 +89,12 @@ sudoku_korrekt: LEMMA FORALL(x: below(3), y:below(3)):
        bijective?(sudoku1(x,y)) AND
        bijective?(farbe(x,y))
 
-sieben_in_00: FORMULA sub1(0,0)=7
-nicht_eins_in_00: FORMULA sub1(0,0)/= 1
-
 %TODO
-% Color
 % 1 Zahl an 1 Stelle
 % nicht 1 Zahl an 1 Stelle
-% Layout - Zeileabstände, Kommentare usw.
-% Geser: "LET würde ich nicht benutzen"
+
+sieben_in_00: FORMULA sub1(0,0)=7
+nicht_eins_in_00: FORMULA sub1(0,0)/= 1
 
 
 END Theorie

@@ -3,16 +3,14 @@ Deklaration	: THEORY
 
  
 
-   Zahl: TYPE+ = {(z:nat) | z > 0 and z <= 9 }
+Zahl: TYPE+ = {(z:nat) | z > 0 and z <= 9 }
   
-  SubMatrix: TYPE+ = [below(3),below(3) -> Zahl]
+SubMatrix: TYPE+ = [below(3),below(3) -> Zahl]
   
-  Sudoku: TYPE+ = [below(3),below(3) -> SubMatrix] 
+Sudoku: TYPE+ = [below(3),below(3) -> SubMatrix] 
 
-  
 
-  % vielleicht nmod anstatt mod3 verwenden
-  mod3(n:below(9)): below(3) = 
+mod3(n:below(9)): below(3) = 
   		   IF n = 0 THEN 0
   		   ELSIF n = 1 THEN 1
 		   ELSIF n = 2 THEN 2
@@ -23,8 +21,8 @@ Deklaration	: THEORY
 		   ELSIF n = 7 THEN 1
 		   ELSE 2 ENDIF
 
-  % vielleicht ndiv anstatt div3 verwenden
-  div3(n:below(9)): below(3) =
+
+div3(n:below(9)): below(3) =
   		   IF n = 0 THEN 0
 		   ELSIF n = 1 THEN 0
 		   ELSIF n = 2 THEN 0
@@ -36,7 +34,6 @@ Deklaration	: THEORY
 		   ELSE 2 ENDIF
 		   
   
-  
-  END Deklaration
+END Deklaration
 
 

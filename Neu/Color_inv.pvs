@@ -103,6 +103,6 @@ weiss_color_inv(z: Zahl): below(9) =
 	ELSE 6 ENDIF	   
 		   
   
-  END Color_inv
+END Color_inv
 
 

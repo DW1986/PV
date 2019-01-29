@@ -3,9 +3,9 @@ Sudoku	: THEORY
 
 importing Deklaration
 
-  	x,y: VAR below(3) 
+x,y: VAR below(3) 
 
-  	sub1(x,y): Zahl =
+sub1(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 7
 		ELSIF x = 1 AND y = 0 THEN 4
 		ELSIF x = 2 AND y = 0 THEN 6
@@ -16,7 +16,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 5
 		ELSE 3 ENDIF
 
-    sub2(x,y): Zahl =
+sub2(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 1
 		ELSIF x = 1 AND y = 0 THEN 3
 		ELSIF x = 2 AND y = 0 THEN 9
@@ -27,7 +27,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 6
 		ELSE 2 ENDIF
   
-  	sub3(x,y): Zahl =
+sub3(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 5
 		ELSIF x = 1 AND y = 0 THEN 2
 		ELSIF x = 2 AND y = 0 THEN 8
@@ -38,7 +38,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 4 
 		ELSE 1 ENDIF
 
-   	sub4(x,y): Zahl =
+sub4(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 6
 		ELSIF x = 1 AND y = 0 THEN 1
 		ELSIF x = 2 AND y = 0 THEN 4
@@ -49,7 +49,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 9
 		ELSE 7 ENDIF
 
-  	sub5(x,y): Zahl =
+sub5(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 9
 		ELSIF x = 1 AND y = 0 THEN 5
 		ELSIF x = 2 AND y = 0 THEN 3
@@ -60,7 +60,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 2
 		ELSE 8 ENDIF	 
   
-  	sub6(x,y): Zahl =
+sub6(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 8
 		ELSIF x = 1 AND y = 0 THEN 7
 		ELSIF x = 2 AND y = 0 THEN 2
@@ -71,7 +71,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 3
 		ELSE 6 ENDIF
 
-   	sub7(x,y): Zahl =
+sub7(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 4
 		ELSIF x = 1 AND y = 0 THEN 6
 		ELSIF x = 2 AND y = 0 THEN 5
@@ -82,7 +82,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 8
 		ELSE 9 ENDIF
 
-    sub8(x,y): Zahl =
+sub8(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 2
 		ELSIF x = 1 AND y = 0 THEN 8
 		ELSIF x = 2 AND y = 0 THEN 1
@@ -93,7 +93,7 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 7
 		ELSE 4 ENDIF
 
-  	sub9(x,y): Zahl =
+sub9(x,y): Zahl =
 		IF x = 0 AND y = 0 THEN 3
 		ELSIF x = 1 AND y = 0 THEN 9
 		ELSIF x = 2 AND y = 0 THEN 7
@@ -104,15 +104,15 @@ importing Deklaration
 		ELSIF x = 1 AND y = 2 THEN 1
 		ELSE 5 ENDIF
 
-    sudoku1(x,y): SubMatrix =
+ sudoku1(x,y): SubMatrix =
 	  	IF x = 0 AND y = 0 THEN sub1
-	    ELSIF x = 1 AND y = 0 THEN sub2
-	    ELSIF x = 2 AND y = 0 THEN sub3
-	    ELSIF x = 0 AND y = 1 THEN sub4
-	    ELSIF x = 1 AND y = 1 THEN sub5
-	    ELSIF x = 2 AND y = 1 THEN sub6
-	    ELSIF x = 0 AND y = 2 THEN sub7
-	    ELSIF x = 1 AND y = 2 THEN sub8
-	    ELSE sub9 ENDIF
+   	        ELSIF x = 1 AND y = 0 THEN sub2
+	        ELSIF x = 2 AND y = 0 THEN sub3
+	        ELSIF x = 0 AND y = 1 THEN sub4
+	        ELSIF x = 1 AND y = 1 THEN sub5
+	        ELSIF x = 2 AND y = 1 THEN sub6
+	        ELSIF x = 0 AND y = 2 THEN sub7
+	        ELSIF x = 1 AND y = 2 THEN sub8
+	        ELSE sub9 ENDIF
 
 END Sudoku
