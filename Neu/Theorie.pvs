@@ -13,6 +13,9 @@ line(ysub:below(3),y: below(3)): [below(9) -> Zahl] =
 column(xsub: below(3), x:below(3)): [below(9) -> Zahl] =
     (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(xsub,div3(n)) IN subm(x,mod3(n)))
 
+farbe(x: below(3), y:below(3)): [below(9) -> Zahl] =
+    (LAMBDA(n:below(9)): LET subm:SubMatrix = sudoku1(mod3(n),div3(n)) IN subm(x,y))
+
 %% Sub-Matrizen
 
 erste_sub: LEMMA bijective?(sub1)
@@ -55,15 +58,24 @@ siebte_spalte: LEMMA bijective?(column(2,0))
 achte_spalte: LEMMA bijective?(column(2,1))
 neunte_spalte: LEMMA bijective?(column(2,2))
 
+%% Farben
+
+rote_felder: LEMMA bijective?(farbe(0,0))
+graue_felder: LEMMA bijective?(farbe(0,1))
+
 
 %% Sudoku
 
 alle_zeilen: LEMMA FORALL(ysub:below(3), y:below(3)): bijective?(line(ysub, y))
 alle_spalten: LEMMA FORALL(xsub: below(3), x:below(3)): bijective?(column(xsub,x))
 alle_subs: LEMMA FORALL(x: below(3), y: below(3)): bijective?(sudoku1(x,y))
+alle_farben: LEMMA FORALL(x: below(3), y: below(3)): bijective?(farbe(x,y))
  
 sudoku_korrekt: LEMMA FORALL(x: below(3), y:below(3)):
-       bijective?(line(x,y)) AND bijective?(column(x,y)) AND bijective?(sudoku1(x,y))
+       bijective?(line(x,y)) AND
+       bijective?(column(x,y)) AND
+       bijective?(sudoku1(x,y)) AND
+       bijective?(farbe(x,y))
 
 sieben_in_00: FORMULA sub1(0,0)=7
 nicht_eins_in_00: FORMULA sub1(0,0)/= 1
