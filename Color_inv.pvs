@@ -102,7 +102,4 @@ weiss_color_inv(z: Zahl): below(9) =
 	ELSIF z = 8 THEN 4
 	ELSE 6 ENDIF	   
 		   
-  
 END Color_inv
-
-

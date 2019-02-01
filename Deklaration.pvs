@@ -1,0 +1,36 @@
+Deklaration	: THEORY
+  BEGIN
+
+Zahl: TYPE+ = {(z:nat) | z > 0 and z <= 9 }
+  
+SubMatrix: TYPE+ = [below(3),below(3) -> Zahl]
+  
+Sudoku: TYPE+ = [below(3),below(3) -> SubMatrix] 
+
+mod3(n:below(9)): below(3) = 
+	IF n = 0 THEN 0
+	ELSIF n = 1 THEN 1
+	ELSIF n = 2 THEN 2
+	ELSIF n = 3 THEN 0
+	ELSIF n = 4 THEN 1
+	ELSIF n = 5 THEN 2
+	ELSIF n = 6 THEN 0
+	ELSIF n = 7 THEN 1
+	ELSE 2 ENDIF
+
+
+div3(n:below(9)): below(3) =
+	IF n = 0 THEN 0
+	ELSIF n = 1 THEN 0
+	ELSIF n = 2 THEN 0
+	ELSIF n = 3 THEN 1
+	ELSIF n = 4 THEN 1
+	ELSIF n = 5 THEN 1
+	ELSIF n = 6 THEN 2
+	ELSIF n = 7 THEN 2
+	ELSE 2 ENDIF
+		   
+  
+END Deklaration
+
+
